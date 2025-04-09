@@ -18,4 +18,8 @@ func Register(app *gin.RouterGroup) {
 	app.POST("/subscribe", SubscribeAPI)
 	app.GET("/invite", InviteAPI)
 	app.GET("/redeem", RedeemAPI)
+	
+	// 企业微信登录相关
+	app.GET("/wecom/auth", WecomAuthAPI)
+	app.GET("/wecom/callback", WecomCallbackAPI)
 }

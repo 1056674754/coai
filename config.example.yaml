@@ -30,3 +30,10 @@ system:
   search:
     endpoint: https://duckduckgo-api.vercel.app
     query: 5
+
+wechat_work:
+  enabled: false
+  corp_id: ""     # 企业微信CorpID
+  agent_id: ""    # 应用AgentID
+  secret: ""      # 应用Secret
+  redirect_uri: "" # 回调URL，如：https://yourdomain.com/api/wechat/callback

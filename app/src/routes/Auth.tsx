@@ -20,6 +20,7 @@ import { Button } from "@/components/ui/button.tsx";
 import { formReducer, isTextInRange } from "@/utils/form.ts";
 import { doLogin, LoginForm } from "@/api/auth.ts";
 import { getErrorMessage, isEnter } from "@/utils/base.ts";
+import { WecomLogin } from "@/components/WecomLogin.tsx";
 
 function DeepAuth() {
   const { toast } = useToast();
@@ -202,6 +203,14 @@ function Login() {
             <Button onClick={onSubmit} className={`mt-2`} loading={true}>
               {t("login")}
             </Button>
+            
+            <div className="relative flex items-center justify-center mt-6 mb-4">
+              <div className="absolute border-t border-gray-300 w-full"></div>
+              <div className="relative bg-white px-4 text-sm text-gray-500">
+                {t("auth.or-sign-in-with")}
+              </div>
+            </div>
+            <WecomLogin />
           </div>
         </CardContent>
       </Card>

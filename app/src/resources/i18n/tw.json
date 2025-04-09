@@ -89,7 +89,9 @@
     "send-code-failed-prompt": "驗證碼傳送失敗，原因：{{reason}}",
     "register-success": "註冊成功",
     "register-success-prompt": "您已成功註冊，歡迎加入！",
-    "disabled-mail": "本站的電子郵件功能已被停用，請聯絡管理員開啟發信功能。"
+    "disabled-mail": "本站的電子郵件功能已被停用，請聯絡管理員開啟發信功能。",
+    "wecom-login": "Info Enterprise WeChat Login",
+    "or-sign-in-with": "Anaa wo ne no nkɔ"
   },
   "tag": {
     "free": "免費",

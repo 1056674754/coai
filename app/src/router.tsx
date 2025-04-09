@@ -14,6 +14,7 @@ import Forgot from "@/routes/Forgot.tsx";
 import { lazyFactor } from "@/utils/loader.tsx";
 import { useSelector } from "react-redux";
 import { selectAdmin, selectAuthenticated, selectInit } from "@/store/auth.ts";
+import { LoginSuccess } from "@/routes/LoginSuccess.tsx";
 
 const Generation = lazyFactor(() => import("@/routes/Generation.tsx"));
 const Sharing = lazyFactor(() => import("@/routes/Sharing.tsx"));
@@ -49,6 +50,10 @@ const router = createBrowserRouter(
         </AuthForbidden>
       ),
       ErrorBoundary: NotFound,
+    },
+    {
+      path: "/login/success",
+      element: <LoginSuccess />,
     },
     !useDeeptrain &&
       ({

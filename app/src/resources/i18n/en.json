@@ -785,7 +785,9 @@
     "register-success": "Account created !",
     "register-success-prompt": "You have successfully registered, welcome!",
     "disabled-mail": "The mailbox of the current site has been disabled, please contact the administrator to enable the mailing function.",
-    "code-disabled-placeholder": "No email verification required"
+    "code-disabled-placeholder": "No email verification required",
+    "wecom-login": "Enterprise WeChat Login",
+    "or-sign-in-with": "Or log in with"
   },
   "reset": "Reset",
   "request-error": "Request failed for {{reason}}",

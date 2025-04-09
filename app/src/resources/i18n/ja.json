@@ -786,7 +786,9 @@
     "register-success": "登録に成功しました",
     "register-success-prompt": "登録が完了しました。ようこそ！",
     "disabled-mail": "現在のサイトのメールボックスは無効になっています。管理者に連絡して郵送機能を有効にしてください。",
-    "code-disabled-placeholder": "メールアドレスの認証は必要ありません"
+    "code-disabled-placeholder": "メールアドレスの認証は必要ありません",
+    "wecom-login": "エンタープライズWeChatログイン",
+    "or-sign-in-with": "または、次の方法でログインしてください"
   },
   "reset": "リセット",
   "request-error": "{{reason}}のためにリクエストできませんでした",
