@@ -121,7 +121,6 @@ export default function WecomJump() {
         });
       } else {
         // 登录失败
-        alert(response.data);
         toast({
           title: t("login-failed"),
           description: t("login-failed-prompt", { reason: response.data.error || "未知错误1" }),
@@ -130,7 +129,6 @@ export default function WecomJump() {
       }
     } catch (error: any) {
       console.error("企业微信登录失败", error);
-      alert(error);
       toast({
         title: t("login-failed"),
         description: t("login-failed-prompt", { reason: error.message || "未知错误2" }),
