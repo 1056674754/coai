@@ -787,7 +787,11 @@
     "disabled-mail": "The mailbox of the current site has been disabled, please contact the administrator to enable the mailing function.",
     "code-disabled-placeholder": "No email verification required",
     "wecom-login": "Enterprise WeChat Login",
-    "or-sign-in-with": "Or log in with"
+    "or-sign-in-with": "Or log in with",
+    "wechat-work-login": "Enterprise WeChat Login",
+    "or": "Or",
+    "use-password-login": "Use Username & Password",
+    "use-wecom-login": "Use Enterprise WeChat Login"
   },
   "reset": "Reset",
   "request-error": "Request failed for {{reason}}",

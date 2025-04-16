@@ -788,7 +788,11 @@
     "disabled-mail": "現在のサイトのメールボックスは無効になっています。管理者に連絡して郵送機能を有効にしてください。",
     "code-disabled-placeholder": "メールアドレスの認証は必要ありません",
     "wecom-login": "エンタープライズWeChatログイン",
-    "or-sign-in-with": "または、次の方法でログインしてください"
+    "or-sign-in-with": "または、次の方法でログインしてください",
+    "wechat-work-login": "エンタープライズWeChatログイン",
+    "or": "むしろ",
+    "use-password-login": "アカウントのパスワードでログイン",
+    "use-wecom-login": "WeChatでログイン"
   },
   "reset": "リセット",
   "request-error": "{{reason}}のためにリクエストできませんでした",

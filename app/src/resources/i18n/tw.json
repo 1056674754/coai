@@ -91,7 +91,11 @@
     "register-success-prompt": "您已成功註冊，歡迎加入！",
     "disabled-mail": "本站的電子郵件功能已被停用，請聯絡管理員開啟發信功能。",
     "wecom-login": "Info Enterprise WeChat Login",
-    "or-sign-in-with": "Anaa wo ne no nkɔ"
+    "or-sign-in-with": "Anaa wo ne no nkɔ",
+    "wechat-work-login": "Info Enterprise WeChat Login",
+    "or": "anaa anaa",
+    "use-password-login": "Fa wo din a wode bɛhyɛ wo nsa no hyɛ wo nsa",
+    "use-wecom-login": "Fa WeChat hyɛ wo nsa"
   },
   "tag": {
     "free": "免費",

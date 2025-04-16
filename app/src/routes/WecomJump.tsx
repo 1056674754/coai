@@ -7,7 +7,6 @@ import { AppDispatch } from "@/store/index.ts";
 import { setToken, updateData } from "@/store/auth.ts";
 import { loginWithWecom } from "@/api/wecom.ts";
 import { selectWecomConfig, fetchWecomConfig } from "@/store/wecom.ts";
-import axios from "axios";
 import { doState } from "@/api/auth";
 
 export default function WecomJump() {

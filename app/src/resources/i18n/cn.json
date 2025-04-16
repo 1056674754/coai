@@ -91,7 +91,11 @@
     "register-success-prompt": "您已成功注册，欢迎你的到来！",
     "disabled-mail": "当前站点的邮箱已被禁用，请联系管理员开启发件功能。",
     "wecom-login": "企业微信登录",
-    "or-sign-in-with": "或者使用以下方式登录"
+    "wechat-work-login": "企业微信登录",
+    "or-sign-in-with": "或者使用以下方式登录",
+    "or": "或者",
+    "use-password-login": "使用账号密码登录",
+    "use-wecom-login": "使用企业微信登录"
   },
   "tag": {
     "free": "免费",

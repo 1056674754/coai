@@ -1,7 +1,7 @@
 import { useToast } from "@/components/ui/use-toast.ts";
 import { ToastAction } from "@/components/ui/toast.tsx";
 import { tokenField } from "@/conf/bootstrap.ts";
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 import Loader from "@/components/Loader.tsx";
 import "@/assets/pages/auth.less";
 import { validateToken } from "@/store/auth.ts";
@@ -97,6 +97,8 @@ function Login() {
     username: sessionStorage.getItem("username") || "",
     password: sessionStorage.getItem("password") || "",
   });
+  // 默认使用企业微信登录
+  const [loginMethod, setLoginMethod] = useState<'wecom' | 'password'>('wecom');
 
   const onSubmit = async () => {
     if (
@@ -147,12 +149,17 @@ function Login() {
   useEffect(() => {
     // listen to enter key and auto submit
     const listener = async (e: KeyboardEvent) => {
-      if (isEnter(e)) await onSubmit();
+      if (isEnter(e) && loginMethod === 'password') await onSubmit();
     };
 
     document.addEventListener("keydown", listener);
     return () => document.removeEventListener("keydown", listener);
-  }, []);
+  }, [loginMethod]);
+
+  // 切换登录方式
+  const toggleLoginMethod = () => {
+    setLoginMethod(loginMethod === 'wecom' ? 'password' : 'wecom');
+  };
 
   return (
     <div className={`auth-container`}>
@@ -163,54 +170,84 @@ function Login() {
       <Card className={`auth-card`}>
         <CardContent className={`pb-0`}>
           <div className={`auth-wrapper`}>
-            <Label>
-              <Require />
-              {t("auth.username-or-email")}
-              <LengthRangeRequired
-                content={form.username}
-                min={1}
-                max={255}
-                hideOnEmpty={true}
-              />
-            </Label>
-            <Input
-              placeholder={t("auth.username-or-email-placeholder")}
-              value={form.username}
-              onChange={(e) =>
-                dispatch({ type: "update:username", payload: e.target.value })
-              }
-            />
+            {loginMethod === 'wecom' ? (
+              <>
+                {/* 企业微信登录 */}
+                <WecomLogin />
+                
+                <div className="relative flex items-center justify-center mt-6 mb-4">
+                  <div className="absolute border-t border-gray-300 w-full"></div>
+                  <div className="relative bg-white px-4 text-sm text-gray-500">
+                    {t("auth.or")}
+                  </div>
+                </div>
+                
+                <div 
+                  onClick={toggleLoginMethod} 
+                  className="w-full flex items-center justify-center mt-2 text-center cursor-pointer text-blue-600 hover:text-blue-800 hover:underline text-sm"
+                >
+                  {t("auth.use-password-login")}
+                </div>
+              </>
+            ) : (
+              <>
+                {/* 账号密码登录 */}
+                <Label>
+                  <Require />
+                  {t("auth.username-or-email")}
+                  <LengthRangeRequired
+                    content={form.username}
+                    min={1}
+                    max={255}
+                    hideOnEmpty={true}
+                  />
+                </Label>
+                <Input
+                  placeholder={t("auth.username-or-email-placeholder")}
+                  value={form.username}
+                  onChange={(e) =>
+                    dispatch({ type: "update:username", payload: e.target.value })
+                  }
+                />
 
-            <Label>
-              <Require />
-              {t("auth.password")}
-              <LengthRangeRequired
-                content={form.password}
-                min={6}
-                max={36}
-                hideOnEmpty={true}
-              />
-            </Label>
-            <Input
-              placeholder={t("auth.password-placeholder")}
-              value={form.password}
-              type={"password"}
-              onChange={(e) =>
-                dispatch({ type: "update:password", payload: e.target.value })
-              }
-            />
+                <Label>
+                  <Require />
+                  {t("auth.password")}
+                  <LengthRangeRequired
+                    content={form.password}
+                    min={6}
+                    max={36}
+                    hideOnEmpty={true}
+                  />
+                </Label>
+                <Input
+                  placeholder={t("auth.password-placeholder")}
+                  value={form.password}
+                  type={"password"}
+                  onChange={(e) =>
+                    dispatch({ type: "update:password", payload: e.target.value })
+                  }
+                />
 
-            <Button onClick={onSubmit} className={`mt-2`} loading={true}>
-              {t("login")}
-            </Button>
-            
-            <div className="relative flex items-center justify-center mt-6 mb-4">
-              <div className="absolute border-t border-gray-300 w-full"></div>
-              <div className="relative bg-white px-4 text-sm text-gray-500">
-                {t("auth.or-sign-in-with")}
-              </div>
-            </div>
-            <WecomLogin />
+                <Button onClick={onSubmit} className={`mt-2`}>
+                  {t("login")}
+                </Button>
+                
+                <div className="relative flex items-center justify-center mt-6 mb-4">
+                  <div className="absolute border-t border-gray-300 w-full"></div>
+                  <div className="relative bg-white px-4 text-sm text-gray-500">
+                    {t("auth.or")}
+                  </div>
+                </div>
+                
+                <div 
+                  onClick={toggleLoginMethod} 
+                  className="w-full flex items-center justify-center text-center cursor-pointer text-blue-600 hover:text-blue-800 hover:underline text-sm"
+                >
+                  {t("auth.use-wecom-login")}
+                </div>
+              </>
+            )}
           </div>
         </CardContent>
       </Card>
