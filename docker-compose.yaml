@@ -29,7 +29,10 @@ services:
       - chatnio-network
 
   chatnio:
-      image: programzmh/chatnio
+      image: chatnio-custom
+      build:
+        context: .
+        dockerfile: Dockerfile.custom2
       container_name: chatnio
       restart: always
       ports:
@@ -58,6 +61,7 @@ services:
         - ./config:/config
         - ./logs:/logs
         - ./storage:/storage
+        - ./app/dist:/app/dist
       networks:
         - chatnio-network
 

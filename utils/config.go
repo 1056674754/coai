@@ -157,7 +157,11 @@ func RegisterStaticRoute(engine *gin.Engine) {
 
 	engine.Use(static.Serve("/", static.LocalFile("./app/dist", true)))
 	engine.NoRoute(func(c *gin.Context) {
-		c.File("./app/dist/index.cache.html")
+		if strings.HasPrefix(c.Request.URL.Path, "/api") {
+			c.JSON(404, gin.H{"status": false, "message": "API endpoint not found or method not allowed"})
+		} else {
+			c.File("./app/dist/index.cache.html")
+		}
 	})
 
 	for _, route := range redirectRoutes {

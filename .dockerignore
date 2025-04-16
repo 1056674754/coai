@@ -24,7 +24,7 @@ addition/article/data/*
 sdk
 logs
 
-chat
+# chat
 chat.exe
 
 # for reverse engine

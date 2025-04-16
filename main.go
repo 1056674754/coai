@@ -69,6 +69,13 @@ func main() {
 	registerApiRouter(app)
 	readCorsOrigins()
 
+	// 打印所有路由信息
+	routes := app.Routes()
+	fmt.Println("[路由信息] 共有路由:", len(routes), "条")
+	for _, route := range routes {
+		fmt.Printf("[路由] %s %s -> %s\n", route.Method, route.Path, route.Handler)
+	}
+
 	if err := app.Run(fmt.Sprintf(":%s", viper.GetString("server.port"))); err != nil {
 		panic(err)
 	}

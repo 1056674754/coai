@@ -11,6 +11,7 @@ import apiReducer from "./api";
 import sharingReducer from "./sharing";
 import invitationReducer from "./invitation";
 import settingsReducer from "./settings";
+import wecomReducer from "./wecom";
 
 const store = configureStore({
   reducer: {
@@ -26,11 +27,11 @@ const store = configureStore({
     sharing: sharingReducer,
     invitation: invitationReducer,
     settings: settingsReducer,
+    wecom: wecomReducer,
   },
 });
 
-type RootState = ReturnType<typeof store.getState>;
-type AppDispatch = typeof store.dispatch;
-
-export type { RootState, AppDispatch };
+// Infer the `RootState` and `AppDispatch` types from the store itself
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 export default store;

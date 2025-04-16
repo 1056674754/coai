@@ -13,9 +13,21 @@ import (
 	"runtime/debug"
 	"strings"
 
+	"github.com/gin-gonic/gin"
 	"github.com/goccy/go-json"
 	"golang.org/x/net/proxy"
 )
+
+// 获取当前主机URL
+func GetHostURL(c *gin.Context) string {
+	scheme := "http"
+	if c.Request.TLS != nil || c.GetHeader("X-Forwarded-Proto") == "https" {
+		scheme = "https"
+	}
+	
+	host := c.Request.Host
+	return fmt.Sprintf("%s://%s", scheme, host)
+}
 
 func newClient(c []globals.ProxyConfig) *http.Client {
 	client := &http.Client{

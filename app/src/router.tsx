@@ -15,6 +15,7 @@ import { lazyFactor } from "@/utils/loader.tsx";
 import { useSelector } from "react-redux";
 import { selectAdmin, selectAuthenticated, selectInit } from "@/store/auth.ts";
 import { LoginSuccess } from "@/routes/LoginSuccess.tsx";
+import WecomJump from "@/routes/WecomJump.tsx";
 
 const Generation = lazyFactor(() => import("@/routes/Generation.tsx"));
 const Sharing = lazyFactor(() => import("@/routes/Sharing.tsx"));
@@ -54,6 +55,10 @@ const router = createBrowserRouter(
     {
       path: "/login/success",
       element: <LoginSuccess />,
+    },
+    {
+      path: "/wecom/jump",
+      element: <WecomJump />,
     },
     !useDeeptrain &&
       ({

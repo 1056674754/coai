@@ -20,6 +20,8 @@ func Register(app *gin.RouterGroup) {
 	app.GET("/redeem", RedeemAPI)
 	
 	// 企业微信登录相关
-	app.GET("/wecom/auth", WecomAuthAPI)
-	app.GET("/wecom/callback", WecomCallbackAPI)
+	app.GET("/wecom-auth", WecomAuthAPI)
+	app.GET("/wecom-callback", WecomCallbackAPI)
+	app.GET("/wecom-config", WecomConfigAPI)
+	app.GET("/wecom-jump", WecomJumpToHomeAPI)
 }
